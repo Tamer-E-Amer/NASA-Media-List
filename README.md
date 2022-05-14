@@ -6,7 +6,7 @@ I selected on of these APIs which provides Images, audios and videos made by NAS
 
 ## About the Project
 
-**Nasa Media List (NML)** The purpose of this App is to search for a media file weather it is image, audio or video. The application will search in anasa image API and provide you all realated media types. Search result can be filtered by to the left filter menu (images, audios or videos). Result is presented in pagination form. you can find the description and the realted information about certain media Type and it will lead to another page that show you the details of this media file.
+**Nasa Media List (NML)** The purpose of this App is to search for a media file weather it is image, audio or video. The application will search in anasa image API and provide you all realated media types. Search result can be filtered by to the left filter menu (images, audios or videos). Result is presented in pagination form. you can find the description and the realted information about certain media Type and it will lead to another page that show you the details of this media file. You can find image API documentation under this link [NASA image API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
 
 ## What are applied in this project
 
@@ -27,4 +27,4 @@ I selected on of these APIs which provides Images, audios and videos made by NAS
 - react-paginate package
 
 **the sketch of this project is made by Adobe XD** and it is publised on **Behance**:
-[Behance](https://www.behance.net/)
+[NASA Media List](https://www.behance.net/gallery/143675053/NASA-Media-List)

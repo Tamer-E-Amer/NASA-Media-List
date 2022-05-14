@@ -8,7 +8,7 @@ import Theme from './themes/appTheme'
 import {ThemeProvider} from '@mui/material/styles'
 import theme from "./themes/appTheme";
 ReactDom.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={Theme}>
 
     <App />
   </ThemeProvider>
