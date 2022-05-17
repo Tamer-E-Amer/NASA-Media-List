@@ -15,6 +15,7 @@ export const colors = {
   dark_grey: "#272525",
   mid_gray: "#26282F",
   light_gray: "#7B7C80",
+  bgWithOpacity: `rgba(39,37,37,0.70)`,
 };
 
 const theme = createTheme({

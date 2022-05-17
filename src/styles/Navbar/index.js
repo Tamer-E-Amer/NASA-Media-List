@@ -13,6 +13,8 @@ export const NavbarContainer = styled(Box)(({matchMobile})=>({
     alignItems:"center",
     justifyContent:"space-between",
     backgroundImage:`url(${NavbarBackground})`,
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"auto",
     height:120,
     padding:matchMobile?"0 2rem":"0 4rem",
 
