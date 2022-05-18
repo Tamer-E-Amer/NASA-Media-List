@@ -16,7 +16,6 @@ export const SearchBarContainer = styled(Box)(({ theme, isMatchMobile }) => ({
   justifyContent: "flex-end",
   padding: "1rem 4rem",
   backgroundImage: `url(${searchBackground})`,
-  //   backgroundRepeat:"no-repeat",
   backgroundSize: "cover",
   width: "100%",
   height: "144px",
@@ -24,7 +23,8 @@ export const SearchBarContainer = styled(Box)(({ theme, isMatchMobile }) => ({
   [theme.breakpoints.down("md")]: {
     justifyContent: "center",
     backgroundImage: `url(${searchBackMobile})`,
-    height: "79px",
+    height: "110px",
+    padding: "1rem",
   },
 }));
 
@@ -54,6 +54,7 @@ export const SearchInput = styled("input")(({ theme }) => ({
   // change the color of search according to scrren size
   [theme.breakpoints.down("md")]: {
     color: "#FFF",
+    textAlign: "left",
   },
 }));
 

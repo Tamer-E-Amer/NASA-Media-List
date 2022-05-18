@@ -1,6 +1,6 @@
 import React from "react";
 // App components
-import { Navbar, SearchBar } from "./components";
+import { Navbar, SearchBar, MainDataHolder } from "./components";
 // mui cpmponents
 import { CssBaseline } from "@mui/material";
 const App = () => {
@@ -12,14 +12,17 @@ const App = () => {
     <>
       <CssBaseline />
       {
-          // search bar
-          // search filter
-          // about Nasa Media List NML
-          // search result list
-          // footer
+        // search bar // done
+        // search filter // done
+        // Main data Holder the holdes the follwoing components
+        // 1- about Nasa Media List NML   //done
+        // 2- search result list
+        // 3- filter component    // done
+        // footer
       }
-      <Navbar/>
-      <SearchBar/>
+      <Navbar />
+      <SearchBar />
+      <MainDataHolder />
     </>
   );
 };
