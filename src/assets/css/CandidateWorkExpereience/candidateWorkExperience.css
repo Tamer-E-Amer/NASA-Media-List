@@ -1,0 +1,18 @@
+.app__candidate-profile-form__experience {
+  padding: 2rem 0;
+}
+
+.app__candidate-profile-form__from-to,
+.app__candidate-profile-form__role {
+  justify-content: space-between;
+}
+
+.app__candidate-profile-form__role {
+  padding-right: 1rem;
+}
+.app__candidate-profile-form__role .add-role {
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--red-color);
+  cursor: pointer;
+}

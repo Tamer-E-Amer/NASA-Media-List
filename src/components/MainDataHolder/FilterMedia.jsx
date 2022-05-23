@@ -37,7 +37,7 @@ const FilterMedia = () => {
     },
   ];
 
-  // map throu the media types array
+  // map through the media types array
   const FilterListItems = mediaTypes.map((item) => (
     <ListItemButton key={item.id}>
       <Checkbox

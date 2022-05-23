@@ -58,5 +58,5 @@ export const AboutData = styled(Box)(({ theme }) => ({
 export const SearchDataWrapper = styled(Stack)(() => ({
   backgroundColor: colors.light_gray,
   padding: "1rem",
-  height: 600,
+  height: "auto",
 }));

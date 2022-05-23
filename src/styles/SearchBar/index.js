@@ -10,7 +10,7 @@ import searchBackMobile from "../../imgs/searchBackMobile.png";
 // theme
 import { colors } from "../../themes/appTheme";
 
-export const SearchBarContainer = styled(Box)(({ theme, isMatchMobile }) => ({
+export const SearchBarContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
