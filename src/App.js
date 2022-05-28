@@ -8,6 +8,7 @@ const App = () => {
   React.useEffect(() => {
     document.title = "NASA Media List";
   }, []);
+
   return (
     <>
       <CssBaseline />

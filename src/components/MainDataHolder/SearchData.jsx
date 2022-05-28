@@ -5,7 +5,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 // App components
-import { MediaItem } from "../../components";
+import { MediaItem, PaginationCom, ReactPaginateCom } from "../../components";
 // styled components
 import { SearchDataWrapper } from "../../styles/MainDataHolder";
 // useSelector and useDispatch
@@ -64,6 +64,8 @@ const SearchData = () => {
             {mediaItems.length > 1 ? mediaItems : `There is no Media " `}
           </Grid>
         </Box>
+        <PaginationCom />
+        {/* <ReactPaginateCom /> */}
         {/* search results */}
       </SearchDataWrapper>
     </>

@@ -35,6 +35,20 @@ export const searchNasaMedia = (word) => {
     });
   };
 };
+// function to search the nasa media data
+
+export const searchNasaMediaWithPaginat = (word, pageNo) => {
+  return async (dispatch) => {
+    const res = await getMedia.get(`search?q=${word}&page=${pageNo}`);
+
+    dispatch({
+      type: ALLMEDIA,
+      data: res.data.collection.items,
+      count: res.data.collection.metadata.total_hits,
+      word: word,
+    });
+  };
+};
 
 // get image thumb
 // the images and videos link in the API is stored in a json file. link of this file is provided as a value of the key "href" in the res.data.collection.items, so we should get the data in this file first in order to show the image thumb in the search result
