@@ -1,8 +1,11 @@
 import React from "react";
-// App components
-import { Navbar, SearchBar, MainDataHolder, Footer } from "./components";
+// pages
+import Home from "./pages/Home";
+import MediaItemDetails from "./pages/MediaItemDetails";
 // mui cpmponents
 import { CssBaseline } from "@mui/material";
+// react router dom
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
   // Giving a title tp the application pages
   React.useEffect(() => {
@@ -12,19 +15,12 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      {
-        // search bar                        // done
-        // search filter                    // done
-        // Main data Holder the holdes the follwoing components
-        // 1- about Nasa Media List NML   //done
-        // 2- search result list         // done
-        // 3- filter component          // done
-        // footer
-      }
-      <Navbar />
-      <SearchBar />
-      <MainDataHolder />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mediaDetails/:id" element={<MediaItemDetails />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

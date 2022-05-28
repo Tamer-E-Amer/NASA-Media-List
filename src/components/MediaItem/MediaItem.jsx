@@ -11,6 +11,9 @@ import { Box, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getImageThumb } from "../../redux/actions/mediaActions";
 import { useSelect } from "@mui/base";
+
+// react router
+import { Link } from "react-router-dom";
 const MediaItem = ({ item }) => {
   const dispatch = useDispatch();
   // state
@@ -31,23 +34,25 @@ const MediaItem = ({ item }) => {
   // const thumb = useSelector((state) => state.imageThumbReducer.thumb);
   return (
     <>
-      <Item>
-        <Stack spacing={2} direction="column">
-          {/* <Box>{item.data[0].title}</Box> */}
-          {/* <Box>{item.href}</Box>  */}
-          {/* <Box>{item.links[0].href}</Box> */}
-          {/* <Box>{item.data[0].media_type}</Box> */}
-          {/* <Box>{item.data[0].center}</Box> */}
-          {/*  audio media does not have a key  */}
-          {item.data[0].media_type !== "audio" ? (
-            <img src={item.links[0].href} alt={""} width={250} height={250} />
-          ) : (
-            "Audio File"
-          )}
+      <Link to={`/mediaDetails/${item.data[0].nasa_id}`}>
+        <Item>
+          <Stack spacing={2} direction="column">
+            {/* <Box>{item.data[0].title}</Box> */}
+            {/* <Box>{item.href}</Box>  */}
+            {/* <Box>{item.links[0].href}</Box> */}
+            {/* <Box>{item.data[0].media_type}</Box> */}
+            {/* <Box>{item.data[0].center}</Box> */}
+            {/*  audio media does not have a key  */}
+            {item.data[0].media_type !== "audio" ? (
+              <img src={item.links[0].href} alt={""} width={250} height={250} />
+            ) : (
+              "Audio File"
+            )}
 
-          {/* {children} */}
-        </Stack>
-      </Item>
+            {/* {children} */}
+          </Stack>
+        </Item>
+      </Link>
     </>
   );
 };

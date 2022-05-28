@@ -21,6 +21,7 @@ export const FilterMediaWrapper = styled(List)(() => ({
   backgroundColor: colors.dark_grey,
   color: "#FFF",
   paddingTop: 0,
+  marginBottom: 10,
 }));
 
 // about Nasa Media API
@@ -29,7 +30,7 @@ export const AboutNasaWrapper = styled(Stack)(() => ({
   //   width: "30%",
   backgroundColor: colors.dark_grey,
   color: "#FFF",
-  margin: "1rem 0",
+  // margin: "1rem 0",
 }));
 
 // about nasa header
