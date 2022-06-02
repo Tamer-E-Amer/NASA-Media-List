@@ -37,7 +37,7 @@ const MediaItemDataContainer = () => {
   // run getMediaItemDetails
   React.useEffect(() => {
     dispatch(getMediaItemDetails(nasa_id));
-  }, [nasa_id]);
+  }, []);
 
   // details state
 
@@ -75,12 +75,19 @@ const MediaItemDataContainer = () => {
                   Media type: {itemDetailsData.data[0].media_type}
                 </ItemTitle>
                 <ItemTitle>Center:{itemDetailsData.data[0].center}</ItemTitle>
-                <ItemTitle>
-                  Location:{itemDetailsData.data[0].location}
-                </ItemTitle>
-                <ItemTitle>
-                  Photographer:{itemDetailsData.data[0].photographer}
-                </ItemTitle>
+                {/* appear location and photographer only when data is exist */}
+                {itemDetailsData.data[0].location && (
+                  <ItemTitle>
+                    Location:{itemDetailsData.data[0].location}
+                  </ItemTitle>
+                )}
+
+                {itemDetailsData.data[0].photographer && (
+                  <ItemTitle>
+                    Photographer:{itemDetailsData.data[0].photographer}
+                  </ItemTitle>
+                )}
+
                 {/* download button */}
                 <ActionButton startIcon={<DownloadIcon />} variant="contained">
                   Download
