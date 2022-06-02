@@ -15,7 +15,7 @@ import {
   ActionButton,
 } from "../../styles/MediaItemData";
 // images
-import MediaImg from "../../imgs/media-img.png";
+import audioImg from "../../imgs/audio.png";
 // mui icons
 import DownloadIcon from "@mui/icons-material/Download";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -37,7 +37,7 @@ const MediaItemDataContainer = () => {
   // run getMediaItemDetails
   React.useEffect(() => {
     dispatch(getMediaItemDetails(nasa_id));
-  }, []);
+  }, [nasa_id]);
 
   // details state
 
@@ -56,7 +56,13 @@ const MediaItemDataContainer = () => {
           <MediaItemDetails container>
             {/* image */}
             <Grid item md={12} lg={7}>
-              <MediaImage src={itemDetailsData.links[0].href} />
+              <MediaImage
+                src={
+                  itemDetailsData.data[0].media_type === "audio"
+                    ? audioImg
+                    : itemDetailsData.links[0].href
+                }
+              />
             </Grid>
             {/* title, id ,center and download button */}
             <Grid item md={12} lg={5}>
@@ -64,6 +70,9 @@ const MediaItemDataContainer = () => {
                 <ItemTitle>{itemDetailsData.data[0].title}</ItemTitle>
                 <ItemTitle>
                   NASA-Id: {itemDetailsData.data[0].nasa_id}
+                </ItemTitle>
+                <ItemTitle>
+                  Media type: {itemDetailsData.data[0].media_type}
                 </ItemTitle>
                 <ItemTitle>Center:{itemDetailsData.data[0].center}</ItemTitle>
                 <ItemTitle>

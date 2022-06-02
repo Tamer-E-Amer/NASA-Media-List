@@ -69,9 +69,9 @@ export const getMediaItemDetails = (nasa_id) => {
     const res = await getMedia.get(`search?nasa_id=${nasa_id}`);
     dispatch({ type: ITEMDETAILS, data: res.data.collection.items[0] });
     //test
-    console.log(
-      "details from action method",
-      res.data.collection.items[0].data[0]
-    );
+    // console.log(
+    //   "details from action method",
+    //   res.data.collection.items[0].data[0]
+    // );
   };
 };
