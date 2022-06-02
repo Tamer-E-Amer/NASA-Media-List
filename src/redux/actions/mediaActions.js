@@ -2,7 +2,7 @@
  * @description reducer actions
  */
 
-import { ALLMEDIA, IMGTHUMB, SEARCHMEDIA } from "../types/types";
+import { ALLMEDIA, IMGTHUMB, ITEMDETAILS, SEARCHMEDIA } from "../types/types";
 // request method
 import { getMedia } from "../../requestMethods";
 
@@ -59,5 +59,19 @@ export const getImageThumb = (jsonLink) => {
     // const thumb = res.data.filter((item, index) => item.includes("thumb"));
     console.log("viewedThumb", res.data);
     dispatch({ type: IMGTHUMB, data: res.data });
+  };
+};
+
+// mediaItem details
+
+export const getMediaItemDetails = (nasa_id) => {
+  return async (dispatch) => {
+    const res = await getMedia.get(`search?nasa_id=${nasa_id}`);
+    dispatch({ type: ITEMDETAILS, data: res.data.collection.items[0] });
+    //test
+    console.log(
+      "details from action method",
+      res.data.collection.items[0].data[0]
+    );
   };
 };

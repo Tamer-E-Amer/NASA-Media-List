@@ -20,8 +20,30 @@ import MediaImg from "../../imgs/media-img.png";
 import DownloadIcon from "@mui/icons-material/Download";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // router dom
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { getMediaItemDetails } from "../../redux/actions/mediaActions";
 const MediaItemDataContainer = () => {
+  // get nasa_id params
+  const params = useParams();
+  const nasa_id = params.id;
+  const dispatch = useDispatch();
+
+  // get the global itemDetails state
+  const itemDetailsData = useSelector(
+    (state) => state.itemDetailsReducer.mediaDetails
+  );
+  // run getMediaItemDetails
+  React.useEffect(() => {
+    dispatch(getMediaItemDetails(nasa_id));
+  }, []);
+
+  // details state
+
+  // test itemdetails
+  console.log("itemDetails ->", itemDetailsData);
+
   return (
     <>
       <MediaItemDetailsWrapper container spacing={2}>
@@ -34,16 +56,22 @@ const MediaItemDataContainer = () => {
           <MediaItemDetails container>
             {/* image */}
             <Grid item md={12} lg={7}>
-              <MediaImage src={MediaImg} />
+              <MediaImage src={itemDetailsData.links[0].href} />
             </Grid>
             {/* title, id ,center and download button */}
             <Grid item md={12} lg={5}>
               <Stack spacing={2}>
+                <ItemTitle>{itemDetailsData.data[0].title}</ItemTitle>
                 <ItemTitle>
-                  NASA's AIRs captures Hurricane Michael off Florida coast
+                  NASA-Id: {itemDetailsData.data[0].nasa_id}
                 </ItemTitle>
-                <ItemTitle>NASA-Id: NA875597LP6</ItemTitle>
-                <ItemTitle>Center: JPL</ItemTitle>
+                <ItemTitle>Center:{itemDetailsData.data[0].center}</ItemTitle>
+                <ItemTitle>
+                  Location:{itemDetailsData.data[0].location}
+                </ItemTitle>
+                <ItemTitle>
+                  Photographer:{itemDetailsData.data[0].photographer}
+                </ItemTitle>
                 {/* download button */}
                 <ActionButton startIcon={<DownloadIcon />} variant="contained">
                   Download
@@ -57,26 +85,7 @@ const MediaItemDataContainer = () => {
                   Description
                 </Typography>
                 <Typography variant="body2" color="#fff">
-                  This image from the Atmospheric Infrared Sounder (AIRS) shows
-                  the temperature of clouds or the surface in and around
-                  Hurricane Michael as it approaches northwestern Florida around
-                  3 AM local time on Tuesday, October 10, 2018. The storm shows
-                  all the hallmarks of a powerful, mature hurricane. The large
-                  purple area indicates very cold clouds at about -90 F (-68 C)
-                  carried high into the atmosphere by deep thunderstorms. These
-                  storm clouds are associated with very heavy rainfall. At the
-                  center of the cold clouds is the distinct, much warmer eye of
-                  the hurricane seen in green. The extensive areas of red away
-                  from the storm indicate temperatures of around 60 F (15 C),
-                  typical of the surface of the Earth at night. These red areas
-                  are mostly cloud-free, with the clear air caused by air motion
-                  outward from the cold clouds near the storm center then
-                  downward in the surrounding areas. Michael has developed
-                  quickly into a dangerous Category 4 storm, with sustained wind
-                  of 150 miles per hour. It is currently coming ashore on the
-                  Florida Panhandle as the strongest hurricane in that region in
-                  recorded history.
-                  https://photojournal.jpl.nasa.gov/catalog/PIA22749
+                  {itemDetailsData.data[0].description}
                 </Typography>
                 {/* back Button */}
                 <Link to="/">
